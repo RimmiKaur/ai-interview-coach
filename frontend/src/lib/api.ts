@@ -1,4 +1,6 @@
-const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL?.trim().replace(/\/+$/, "") ?? "";
+const API_BASE_URL = (
+  process.env.NEXT_PUBLIC_API_URL ?? process.env.NEXT_PUBLIC_API_BASE_URL ?? ""
+).trim().replace(/\/+$/, "");
 
 export type Difficulty = "Easy" | "Medium" | "Hard";
 export type Turn = { role: "interviewer" | "candidate"; content: string };
@@ -33,7 +35,7 @@ type TranscriptInput = InterviewInput & {
 
 async function post<T>(path: string, body: unknown): Promise<T> {
   if (!API_BASE_URL) {
-    throw new Error("The backend URL is not configured. Set NEXT_PUBLIC_API_BASE_URL and restart the frontend.");
+    throw new Error("The backend URL is not configured. Set NEXT_PUBLIC_API_URL and redeploy the frontend.");
   }
 
   let response: Response;

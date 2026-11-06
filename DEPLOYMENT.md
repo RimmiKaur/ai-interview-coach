@@ -40,7 +40,7 @@ Import the same GitHub repository as a Vercel project. Set **Root Directory** to
 
 | Key | Value |
 | --- | --- |
-| `NEXT_PUBLIC_API_BASE_URL` | The Render service URL, for example `https://ai-interview-coach-api.onrender.com` (no trailing slash) |
+| `NEXT_PUBLIC_API_URL` | The Render service URL, for example `https://ai-interview-coach-backend.onrender.com` (no trailing slash) |
 
 Deploy. Copy the Vercel production domain, then update Render's `FRONTEND_ORIGINS` to that domain, for example `https://ai-interview-coach.vercel.app`. For additional frontend domains, use a comma-separated list. Save the Render environment change and redeploy/restart the service.
 
@@ -49,4 +49,4 @@ Deploy. Copy the Vercel production domain, then update Render's `FRONTEND_ORIGIN
 - Open `https://<your-render-service>.onrender.com/health`; expect `{"status":"ok"}`.
 - Open the Vercel domain, start an interview, and complete it to confirm the CORS origin and Groq key are configured.
 
-For local development, `frontend/.env.local` should set `NEXT_PUBLIC_API_BASE_URL=http://localhost:8000`. The tracked `.env.local.example` is a template only.
+For local development, `frontend/.env.local` should set `NEXT_PUBLIC_API_URL=http://localhost:8000`. The tracked `.env.local.example` is a template only. `NEXT_PUBLIC_API_BASE_URL` remains supported for existing local setups.
