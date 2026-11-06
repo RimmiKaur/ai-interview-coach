@@ -51,7 +51,7 @@ allowed_origins = [
     origin.strip().rstrip("/")
     for origin in os.getenv(
         "FRONTEND_ORIGINS",
-        "http://localhost:3000,http://127.0.0.1:3000",
+        "http://localhost:3000,http://127.0.0.1:3000,https://ai-interview-coach-beta-steel.vercel.app",
     ).split(",")
     if origin.strip()
 ]
